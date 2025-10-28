@@ -8,34 +8,25 @@
 
 For example, one chef (serial) vs. a chef dividing the work amongst his line cooks with each handling prep, sauté, roasting (parallel). The time it takes to get your order drops when work is divided and coordinated. Another example: many construction crews pour concrete, frame walls, and run wiring simultaneously. Coordination (scheduling + communication) decides how close you get to the ideal speedup. That is exactly how it works with computers as well.
 
-
-In the context of parallel computing, a processor refers to the physical CPU that executes instructions and manages data. Each processor contains multiple cores, and each core is an independent execution unit capable of performing its own sequence of instructions. Having multiple cores allows a processor to perform several tasks at once. A node, on the other hand, is a single computer or server within a larger parallel computing system or cluster. Each node can contain one or more processors like each processor can have multiple cores. In parallel computing, tasks are divided among nodes, then among processors, and finally among cores so tasks can be completed simultaneously.
-
-Basically cores -> processors -> nodes -> cluster.
-
-The Seawulf cluster for example has over 400 nodes and 23,000 cores. 
-
-
 **Why we use Parallel Computing:**
 * **Speed:** Get answers in hours instead of months. (You would prefer a restaurant that has line cooks to get your order out faster.)
 * **Scale:** Tackle problems too large for a single machine (if you have billions of unknowns and petabytes of data, your pc would crash).
 * **Cost-effectiveness:** Commodity parts + clusters often beat one gargantuan bespoke machine on price/performance and power efficiency. (It's easier to move indidual bricks than the whole wall.)
 * **Applications:** Climate modeling, drug discovery & molecular dynamics, astrophysics, materials, finance, ML training, brain simulations, etc. 
 
-> **Rule of thumb:** If your problem is a **pile of independent tasks** or can be **decomposed with limited communication**, it’s a good HPC candidate.
+> **Rule of thumb:** If your problem is a pile of independent tasks or can be decomposed with limited communication into a pile of tasks, use parallel computing.
 
-### 2.2 Parallelism primitives (names you’ll use later)
+### Terms We Should Know Explained
 
-* **Task/Process:** A standalone worker (like a chef) executing a portion of the job.
-* **Thread:** A smaller worker inside a process (like two hands on the same chef).
-* **Node:** One computer in the cluster (a kitchen).
-* **Core:** A compute unit inside a CPU (a cook station).
-* **Accelerator (GPU):** A specialized unit with thousands of simpler cores (a pizza oven wall for very high-throughput baking).
-* **Interconnect/Network:** The cables + switches that let nodes talk (the hallways/PA system between kitchens).
+Basically cores -> processors -> nodes -> cluster. Nothing else is really relevant but here is more detail:
 
----
+System organization follows a hierarchical architecture that enables efficient task distribution and execution. At the top level is the **cluster**, a collection of interconnected nodes that communicate over a network to work together on large computational problems. Each **node** is a complete computer system within the cluster, equipped with its own operating system, memory, storage, and one or more processors. Within a node, the **CPU** (central processing unit) is the physical chip responsible for executing instructions. It contains multiple **cores** and shared resources such as an L3 cache, memory controllers, and input/output interfaces. A **core** is the smallest physical unit capable of executing instructions independently; it contains its own functional units and private L1 and L2 caches.  
 
-## 3) Evolution: from engines to supercomputers
+Inside each core are various **functional units** that perform specific tasks. The **L1 cache** is the smallest and fastest memory component, designed to store recently accessed data and instructions. The **L2 cache** acts as an intermediate buffer between the L1 and L3 caches, providing a balance between speed and size and typically serving one or two cores. The **branch prediction unit** anticipates the outcomes of conditional statements to keep the instruction pipeline running smoothly, while the **prefetch unit** analyzes memory access patterns to load data before it is needed. The **integer unit** handles arithmetic and logic operations involving whole numbers, and the **floating-point unit** performs calculations with decimal values. The **decode unit** translates complex machine instructions into simpler operations that the functional units can execute efficiently.  
+
+On the software side, a **process** represents a running program that includes its own memory space, files, and system resources. Each process can create multiple **threads**, which are smaller sequences of instructions that share the same memory space and can be executed concurrently by different cores. This hierarchical design is basically delagation taken to the highest level and is how supercomputers work through tasks.
+
+## Evolution of Computers
 
 ### 3.1 Engines lifted physical labor → Computers lift mental labor
 
