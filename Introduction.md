@@ -1,29 +1,8 @@
-# AMS530 Topic 1 — High-Performance Computing (HPC) Intro
+# An Introduction to High-Performance Computing (HPC)
 
-> Living notes meant to become a polished `README.md` for GitHub. Focus: plain-English explanations, metaphors, and usable jargon.
+## What is HPC and why should we care?
 
----
-
-## 0) Roadmap
-
-* **Topic 0:** Course logistics (quick skim)
-* **Topic 1:** HPC perspectives — evolution of computing, why parallel computing matters, performance metrics, and the modern supercomputing landscape
-* Later sections (to be filled as we progress): hardware intro, software & MPI, performance measurement, algorithms, and applications.
-
----
-
-## 1) Quick course logistics (from slides)
-
-* Instructor/TA, meeting times, Seawulf cluster, project timing, and links to **MPI/OpenMP guides**.
-* Action item for us: keep the MPI/OpenMP links handy in a `/references` section of the final README.
-
-> **Metaphor:** Think of the course like **flight school**. The logistics slides are your runway map; Topic 1 is learning *why* planes exist and what makes them fast, long before you pilot one.
-
----
-
-## 2) Big picture: What is HPC and why should we care?
-
-### 2.1 Definition — *Parallel Computing*
+### Definition — *Parallel Computing*
 
 **Parallel computing** means **solving one big problem by splitting it into many smaller tasks that run at the same time** on multiple processors/cores/nodes.
 
