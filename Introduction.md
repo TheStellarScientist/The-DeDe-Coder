@@ -8,13 +8,13 @@
 
 For example, one chef (serial) vs. a chef dividing the work amongst his line cooks with each handling prep, sauté, roasting (parallel). The time it takes to get your order drops when work is divided and coordinated. Another example: many construction crews pour concrete, frame walls, and run wiring simultaneously. Coordination (scheduling + communication) decides how close you get to the ideal speedup. That is exactly how it works with computers as well.
 
-```
+
 In the context of parallel computing, a processor refers to the physical CPU that executes instructions and manages data. Each processor contains multiple cores, and each core is an independent execution unit capable of performing its own sequence of instructions. Having multiple cores allows a processor to perform several tasks at once. A node, on the other hand, is a single computer or server within a larger parallel computing system or cluster. Each node can contain one or more processors like each processor can have multiple cores. In parallel computing, tasks are divided among nodes, then among processors, and finally among cores so tasks can be completed simultaneously.
 
 Basically cores -> processors -> nodes -> cluster.
 
 The Seawulf cluster for example has over 400 nodes and 23,000 cores. 
-```
+
 
 **Why we use Parallel Computing:**
 * **Speed:** Get answers in hours instead of months. (You would prefer a restaurant that has line cooks to get your order out faster.)
