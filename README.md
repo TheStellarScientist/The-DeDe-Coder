@@ -10,8 +10,8 @@ This README serves as a table of contents. The repository is organized by topics
 ```
 /
 ├── 01-introduction/
-├── 02-hardware-evolution-taxonomy/
-├── 03-software-programming-communication/
+├── 02-hardware/
+├── 03-software/
 ├── 04-performance-metrics/
 ├── 05-algorithms/
 ├── 06-linear-algebra/
