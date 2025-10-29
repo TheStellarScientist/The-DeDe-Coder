@@ -1,14 +1,6 @@
-# AMS530 Topic 2 — Hardware Introduction (README Draft)
+# The Hardware of Supercomputers
 
-> These notes expand on **Topic 2: Hardware**, explaining the anatomy of a supercomputer and the principles behind its architecture. We’ll move through node design, interconnections, instruction/data flow, memory systems, I/O, and system-level design choices—with metaphors and examples to make the ideas intuitive.
-
----
-
-## 1. The Big Picture — Why Hardware Architecture Matters
-
-When we talk about high-performance computing, software only tells part of the story. The hardware underneath—the processors, networks, and memory—determines how fast data can move and how efficiently we can run our programs.
-
-> **Metaphor:** If software is a recipe, hardware is the kitchen. You can’t cook faster than your stove heats or your ingredients arrive.
+## TLDR
 
 Supercomputing hardware design is about optimizing three competing goals:
 
@@ -16,22 +8,22 @@ Supercomputing hardware design is about optimizing three competing goals:
 2. **Efficiency** — how much energy and cost it takes to achieve that speed.
 3. **Scalability** — how gracefully performance increases as you add more processors.
 
----
+## Node Architecture
 
-## 2. Node Architecture — The Building Blocks
+A **node** is the smallest self-contained compute unit in a cluster or supercomputer. It is made of CPUs, memory, and possibly accelerators (like GPUs) and connected to thousands of others. 
 
-A **node** is the smallest self-contained compute unit in a cluster or supercomputer. Think of it as a *mini workstation*—with CPUs, memory, and possibly accelerators (like GPUs)—connected to thousands of others.
+>Your ancient falling apart PC is a node. If we combined it with more dying PCs, you'd have a cluster of nodes similar to Seawulf.
 
-### 2.1 CPUs and Accelerators
+### CPUs and Accelerators
 
 Nodes typically combine:
 
 * **General-purpose CPUs**, like Intel Xeon or AMD EPYC chips, which handle logic-heavy tasks.
 * **Accelerators**, such as NVIDIA Tesla GPUs or Intel Xeon Phi co-processors, which excel at repetitive, highly parallel operations.
 
-> **Metaphor:** CPUs are orchestra conductors—versatile and precise but not as fast at brute-force repetition. GPUs are the string sections: hundreds of players doing the same thing in harmony.
+Imagine building a skyscraper. The CPU is like the architect who designs the plans, makes critical decisions, and coordinates every part of the project. The architect is versatile, able to switch between designing, problem-solving, and managing but can only focus on a few complex tasks at a time. The GPU, on the other hand, is like the construction crew. It consists of hundreds or even thousands of workers, each trained to perform a specific, repetitive task (like laying bricks or installing windows) all at once. When the architect provides clear instructions, the crew can build massive sections of the structure simultaneously. Essentially the crew accelerates building the architect's skyscraper.
 
-### 2.2 Node Memory and Storage
+### Node Memory and Storage
 
 Each node includes:
 
