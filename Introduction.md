@@ -34,80 +34,22 @@ That last one makes up for all the deficiencies assuming we can make them stop k
 
 >Moore's Law: Transistors per chip double about every 2 years, therefore doubling the amount of operations possible. It's like a city building more apartment buildings to host more residents. Anyone with a background in ecology will of course tell you that exponential growth is not sustainable. The idea here however, is that as the effiency in computers comes to a stall and we have no more innovations, we just keep putting multiple computers together like legos to build giant supercomputers. 
 
-## Giant Supercomputers
+## Supercomputers: The Giants of Parallel Computing
 
-* **FLOP:** Floating-Point OPeration (one arithmetic step on a real number).
-* **FLOPS:** FLOPs **per second** (speed).
-* **Prefixes:**
+Supercomputers are defined as the most powerful computers available at any given time, optimized for executing large-scale computations that require immense processing power, memory, and coordination between nodes. They are designed to perform tasks that would take ordinary computers months, years, or even centuries.
+Supercomputers range widely in physical size and architecture, but the current biggest and baddest (El Capitan) is roughly 7,500 square feet, about the size of two tennis courts, a sprawling mansion, or a penthouse in a major city. For perspective, Taylor Swift’s Tribeca penthouse (made from two combined units) in New York City spans around 8,300 square feet.
 
-  * **G**iga: 10^9 (billion) FLOPS
-  * **T**era: 10^12 (trillion)
-  * **P**eta: 10^15 (quadrillion)
-  * **E**xa: 10^18 (quintillion)
+### El Capitan and The Top500
 
-> **Metaphor:** Each FLOP is a **single Lego click**. FLOPS is **clicks per second**. Exascale is a city of builders snapping Legos at unimaginable speed.
+While El Capitan’s size makes it the biggest, what makes it the baddest (most powerful) depends on how we measure performance. There are several global rankings that assess supercomputers using different criteria (speed, efficiency, cost, power usage, etc.). You can check the Project One file for a deeper dive into how El Capitan performs across these scorecards. Here, we’ll focus on the most widely recognized ranking system: the Top500.
 
----
+The Top500 is a biannual ranking of the world’s fastest supercomputers, based on how quickly they can solve a dense system of linear equations using LU factorization with partial pivoting. This test is known as the LINPACK benchmark, and it evaluates how effectively a machine handles heavy numerical workloads that resemble real scientific and engineering computations. The faster a supercomputer can solve this benchmark problem, the higher it ranks.
 
-## 4) The modern landscape: TOP500 snapshots & interconnects
+As of the June 2025 list, El Capitan reigns as number one in the world. According to the rankings, it features:
 
-### 4.1 Performance milestones → Exascale era
+- 11,039,616 cores 
+- Rmax = 1,742.00 PFLOPS – its measured performance (in petaflops, or quadrillions of floating point operations per second) on the LINPACK test.
+- Rpeak = 2,746.38 PFLOPS – its theoretical maximum performance, assuming every core is fully utilized and absolutely nothing goes wrong.
+- Power = 29,581 kW – the total energy consumption. This is a lot. El Capitan doesn't do so well on the Green500.
 
-* Old → New: MFLOPS → GFLOPS → TFLOPS → PFLOPS → **EFLOPS**.
-* Exascale systems deliver **10^18** FLOPS of peak compute.
-
-### 4.2 Interconnects
-
-* **What:** High-speed networks that connect nodes (Infiniband, Slingshot, etc.).
-* **Why they matter:** Parallel programs exchange data; the **speed & topology** of the network determine how quickly nodes can coordinate.
-* **Metaphor:** A **freeway system**. Compute nodes are cities; interconnects are the highways and on-ramps. Congestion and road quality decide delivery times.
-
----
-
-## 5) Reading the scorecard: Top500 metrics in plain English
-
-When a system is listed (e.g., **El Capitan**), you’ll see terms like **Rpeak**, **Rmax**, **Linpack efficiency**, cores, memory, power, and power efficiency. Here’s how to speak that language confidently.
-
-### 5.1 Rpeak vs. Rmax (you’ll use this often)
-
-* **Rpeak (Peak Theoretical Performance):** The **speedometer reading** — what the hardware *could* do in perfect conditions. Computed from chip specs (cores × vector width × frequency × operations per cycle × number of chips).
-* **Rmax (Measured Linpack Performance):** The **fastest recorded lap time** on a standardized race (LINPACK benchmark). This is **actual** sustained performance solving a big system of linear equations.
-* **Linpack Efficiency:** `Rmax / Rpeak` → **how close the car gets to the speedometer on real roads**. Higher is better.
-
-### 5.2 Other frequent fields
-
-* **Cores:** Total CPU cores (and sometimes GPU counts separately). More cooks in the kitchen.
-* **Memory:** RAM capacity. Big simulations need big cupboards for ingredients (arrays/fields).
-* **Interconnect/Network:** The "road" between nodes; dictates communication performance.
-* **Power (MW) & Power Efficiency (GFLOPS/W):** How much electricity it draws and how much compute you get per watt — crucial for cost and sustainability.
-
-> **Jargon to practice:** “This machine has an **Rpeak** of 2.7 exaFLOPS but achieves **Rmax** ~1.74 exaFLOPS on LINPACK, so its **Linpack efficiency** is about **63%**.”
-
-
-
-## 8) Case study: Interpreting a #1 system listing (example — El Capitan)
-
-* **Processor:** AMD EPYC-based nodes, with a modern **Slingshot** interconnect.
-* **Cores:** ~11 million CPU cores → massive concurrency.
-* **Memory:** ~5.4 PB → room for extremely large grids and models.
-* **Rpeak vs Rmax:** ~2.75 vs ~1.74 exaFLOPS → **~63% efficiency** (solid for LINPACK at this scale).
-* **Power:** ~29.6 MW; **~59 GFLOPS/W** → competitive efficiency at exascale.
-
-> **How to talk about it:** “El Capitan’s **Rmax** puts it well into **exascale**, sustained on LINPACK. The **Slingshot-11** network and system software stack (HPE Cray OS) are key to scaling at millions of cores.”
-
----
-
-
-### Appendix A — Glossary (growing)
-
-* **Rpeak:** Peak theoretical performance based on hardware specs; the speedometer number.
-* **Rmax:** Best measured performance on the LINPACK benchmark; the actual lapped speed.
-* **Linpack efficiency:** `Rmax/Rpeak`—fraction of peak achieved in practice.
-* **Interconnect:** The high-speed network wiring HPC nodes.
-* **MPI:** Message Passing Interface, standard for communication among processes in distributed memory.
-* **OpenMP:** Shared-memory threading API inside a node.
-* **Strong scaling:** Fix problem size, increase resources → see how much runtime drops.
-* **Weak scaling:** Grow problem size with resources → see if runtime stays roughly constant.
-* **Domain decomposition:** Split a big spatial/mesh problem into subdomains distributed to processes.
-* **Collective communication:** Group operations (`broadcast`, `all-reduce`, etc.) involving many ranks.
 
