@@ -28,17 +28,13 @@ On the software side, a **process** represents a running program that includes i
 
 ## Evolution of Computers
 
-### 3.1 Engines lifted physical labor → Computers lift mental labor
+Essentially, just as the engine made factory machines possible and led to mass production by removing the limit of human muscles, computers lead to mass calculations and remove the limit of the human brain. This is not to say that computers are necessarily better than the human brain (yet). We as of right now still have use in society. We have more neurons than computers currently have transistors, more synapses to use those neaurons, have lower power consumption, a better cooling system (we're surpsingly better for the environment) and process complex stimuli a lot faster. That said computers have more cores and functional units, can send signals at the speed of light, can complete a lot more floating-point operations per second than we can, (we can do 1 but they can do billions), have a much higher maximum firing rate for their transistors and don't need sleep. 
 
-* Takeaway: As engines mechanized muscle work, computers mechanize **calculation and simulation**. Each technology multiplies human capability.
+That last one makes up for all the deficiencies assuming we can make them stop killing the planet and they don't take over. Especially if we consider Moore's Law and therefore consider that they will theoretically just keep improving.
 
-### 3.2 Moore’s Law (intuition)
+>Moore's Law: Transistors per chip double about every 2 years, therefore doubling the amount of operations possible. It's like a city building more apartment buildings to host more residents. Anyone with a background in ecology will of course tell you that exponential growth is not sustainable. The idea here however, is that as the effiency in computers comes to a stall and we have no more innovations, we just keep putting multiple computers together like legos to build giant supercomputers. 
 
-* **Claim:** Transistors per chip double about every ~2 years → more compute per dollar.
-* **Metaphor:** A city that **doubles its buildings** every other year — more rooms (transistors) to host more parties (operations).
-* **Caveat:** The *spirit* continues via architectural tricks (parallelism, accelerators) even as raw transistor scaling slows.
-
-### 3.3 FLOPs and prefixes you’ll actually say aloud
+## Giant Supercomputers
 
 * **FLOP:** Floating-Point OPeration (one arithmetic step on a real number).
 * **FLOPS:** FLOPs **per second** (speed).
@@ -87,31 +83,7 @@ When a system is listed (e.g., **El Capitan**), you’ll see terms like **Rpeak*
 
 > **Jargon to practice:** “This machine has an **Rpeak** of 2.7 exaFLOPS but achieves **Rmax** ~1.74 exaFLOPS on LINPACK, so its **Linpack efficiency** is about **63%**.”
 
----
 
-## 6) Why parallel computing is cost-effective (talking points)
-
-* **Commodity scaling:** Build clusters from many affordable nodes; upgrade piecewise.
-* **Energy per flop:** Modern accelerators push more FLOPS/W → lower operating costs.
-* **Throughput for teams:** Many users run in parallel; the overall **scientific throughput** per dollar is high.
-* **Time-to-solution:** Faster results reduce researcher time and opportunity cost.
-
-> **Business metaphor:** Rather than one luxury bus, operate a **fleet of vans**. You move more people per day for less, and if one van breaks, the system continues.
-
----
-
-## 7) Applications you can name-drop (with the right jargon)
-
-* **Molecular dynamics** (drug discovery; protein folding). Terms: *time step, force field, trajectory*.
-* **Climate & weather** (earth system models). Terms: *grid, timestepper, solver, ensemble*.
-* **Astrophysics & cosmology** (N-body, MHD). Terms: *domain decomposition, halo exchange*.
-* **Materials & chemistry** (DFT, ab initio). Terms: *Hamiltonian, basis set, SCF iterations*.
-* **Fluid dynamics** (Navier–Stokes, LES/DNS). Terms: *mesh, stencil, ghost cells*.
-* **Machine learning** (data/model parallelism). Terms: *all-reduce, sharding, pipeline parallel*.
-
-> **Parallelism pattern:** Many of these rely on **domain decomposition** (split the big grid/space into subdomains; neighbors exchange boundary data every step).
-
----
 
 ## 8) Case study: Interpreting a #1 system listing (example — El Capitan)
 
@@ -125,30 +97,6 @@ When a system is listed (e.g., **El Capitan**), you’ll see terms like **Rpeak*
 
 ---
 
-## 9) Human brain vs. electronic brain (intuition pump)
-
-* CPUs/GPUs excel at **fast, regular arithmetic**; brains excel at **massively parallel, low-power, adaptive processing**.
-* Metaphor: **Silicon = sprinters on a track** (GHz clocks, precise strides). **Neurons = a city’s crowd** walking, talking, and adjusting — slower individually, astonishingly capable in aggregate at ~40W.
-
----
-
-## 10) Phrases you can use right now (mini phrasebook)
-
-* “We’ll **decompose the domain** and run with **MPI** across nodes and **OpenMP** within a node.”
-* “Our **Rpeak** suggests X, but **Rmax** will depend on memory bandwidth and interconnect.”
-* “Let’s **strong-scale** to cut time-to-solution and **weak-scale** to grow problem size.”
-* “The **all-reduce** is our hot spot; we should try topology-aware mapping.”
-* “Aim for higher **FLOPS/W**—power budget is the real constraint.”
-
----
-
-## 11) What’s next in these notes
-
-* Add visuals/snippets for **scaling laws** (Amdahl/Gustafson) and **roofline** model.
-* Insert a quick-start **MPI ‘hello world’** + a glossary for `rank`, `communicator`, `collective`.
-* Pull in a short **checklist** for reading any Top500 entry: *CPUs/GPUs, interconnect, memory, Rpeak/Rmax, efficiency, power*.
-
----
 
 ### Appendix A — Glossary (growing)
 
