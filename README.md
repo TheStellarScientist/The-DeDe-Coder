@@ -1,7 +1,7 @@
 # The-DeDe-Coder
 *A compendium of notes and definitions for AMS 530: Parallel Computing*
 
-This repository was created by DeDe (TheStellarScientist) to manage the concepts covered in AMS 530 in a way that is hopefully less unwieldy than Google Docs. This repository contains all the concepts, plus links to resources, notes from further reading, and example projects. The goal is to create this as a way for the class to collaborate and digest topics in a way we understand—and that will hopefully be understandable to future classes as well.
+This repository was created by DeDe (TheStellarScientist) to manage the concepts covered in AMS 530 in a way that is hopefully less unwieldy than Google Docs. This repository contains all the concepts, plus links to resources, notes from further reading, and example projects. The goal is to create this as a way for the class to collaborate and digest topics in a way we understand and that will hopefully be understandable to future classes as well.
 
 This README serves as a table of contents. The repository is organized by topics in chronological order as they are taught. Each topic has its own directory containing files that explain the concepts within.
 
